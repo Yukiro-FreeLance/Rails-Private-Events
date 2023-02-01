@@ -1,0 +1,1461 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *https://github.com/Yukiro21
+ *Style SACCSy
+ *= require_tree .
+ *= require_self
+ */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+$background-color: #060713;
+$second-color:#000102;
+$third-color:#263159;
+$text-color:#ffffff;
+$bg-success: #D4EDDA;
+$color-success: #146527;
+$fourth-color: #09ff008e;
+$text: #f2f4f5;
+$background: #090a11;
+
+@mixin first__button {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid $fourth-color;
+    border-radius: 5px;
+    color: $fourth-color;
+  }
+  
+  @mixin first__button__hover {
+    background-color: $fourth-color;
+    color:$text;
+    transition: all 0.3s ease-in-out;
+  
+  }
+  
+  
+  @mixin second__button {
+    font-size: 1rem;
+    margin: 0rem 0rem 1rem 2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid $fourth-color;
+    border-radius: 5px;
+    background-color: $fourth-color;
+    color:$text;
+  
+  }
+  
+  
+  @mixin second__button__hover {
+    background-color: $background;
+    color:$fourth-color;
+    transition: all 0.3s ease-in-out;
+  
+  }
+  @mixin input {
+    width: 20rem;
+    height: 2rem;
+    font-size: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: .5rem;
+    background-color: $background;
+    color: $text;
+  
+  }
+  
+
+body::-webkit-scrollbar{
+    display: none;
+  }
+
+.notice{
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: transparent;
+    color: $color-success;
+    margin-bottom: 1rem;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 6.5rem;
+    left: 0;
+    right: 0;
+    animation: fade 5s;
+    opacity: 0;
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+
+
+  .alert{
+    color: red;
+    background-color: transparent;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 6.5rem;
+    left: 0;
+    right: 0;
+    animation: fade 5s;
+    opacity: 0;
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+
+
+.nav-container{
+    width: 100%;
+    height: 8vh;
+    background-color: $second-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    transition: all 0.5s ease;
+    z-index: 1000;
+    &.active{
+        background-color: $second-color;
+    }
+    .nav-brand{
+        flex-direction: row;
+        font-size: 1.5rem;
+        color: whitesmoke;
+        font-weight: 600;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        h2{
+          margin-left: 2rem;
+          a{
+            color: #f8f8f8d2;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+          }
+        }
+        li{
+          text-decoration: none;
+        }
+        
+    }
+    .home_event{
+        
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: $text-color;
+        background-color: transparent;
+        text-decoration:none;
+    
+        margin-right: 1rem;
+        
+          &:hover{
+            
+            border: 1px solid #41e010;
+
+        }
+        }
+        .new_event{
+          font-size: 1rem;
+          margin-bottom: 1rem;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          color: $text-color;
+          background-color:transparent;
+          text-decoration:none;
+
+      
+
+          
+            &:hover{
+             
+              border: 1px solid #41e010;
+          }
+          }
+    .navbar-image{
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+
+    .nav-dropdown{
+        .button-container{
+            .dropdown{
+                a{
+                    background-color: #000000;
+                    border: 1px solid #10be3b;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        background-color: $third-color;
+                        color: $text;
+                    }
+                }
+
+                .dropdown-menu{
+                    background-color: $second-color;
+                    width: 100%;
+                    // TRANSITION WHEN IT CLICK
+                    border-radius: 10px;
+               
+                    li{    
+                         color: $text;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        .link{
+                            color: $text;
+                            font-size: 1rem;
+                            border: none;
+                            padding: 1rem;
+                            background-color: $second-color;
+                            border-radius:0;
+                            cursor: pointer;
+                            transition: all 0.5s ease;
+                            text-decoration: none;
+
+                            &:hover{
+                                width: 100%;
+                                color: $text;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                border: none;
+                                padding: 1rem 2rem;
+                                border-radius: 0;
+                                text-decoration: none;
+                                background-color: #146527;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .btn-wrapper{
+                margin-top: .4rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .home_event{
+                  font-size: 1rem;
+                  margin-bottom: 1rem;
+                  padding: 0.5rem 1rem;
+                  border-radius: 5px;
+                  color: $text-color;
+                  background-color: transparent;
+                  text-decoration:none;
+              
+                  margin-right: 1rem;
+                  
+                    &:hover{
+                      
+                      border: 1px solid #41e010;
+        
+                  }
+                  }
+                  .new_event{
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                    padding: 0.5rem 1rem;
+                    border-radius: 5px;
+                    color: $text-color;
+                    background-color:transparent;
+                    text-decoration:none;
+         
+                    margin-right: 1rem;
+        
+                    
+                      &:hover{
+                       
+                        border: 1px solid #41e010;
+                    }
+                    }
+          
+        
+                .sign__in{
+                  @include first__button();
+                  background-color: #000102;
+                  color: $text-color;
+                  text-decoration:none;
+                  margin-left: 1rem ;
+        
+                    &:hover{
+                      @include first__button__hover();
+                  }
+                  }
+        
+                .sign__up{
+                      @include second__button();
+                      text-decoration:none;
+                      background-color: $background;
+                      
+                      &:hover{
+                          
+                        @include first__button__hover();
+                      }
+                  }
+            }
+        }
+    }
+}
+
+
+
+
+// style for sign up and sign
+
+.form__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c0d22;
+    height: 100vh;
+  .title{
+    position: relative;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $text-color;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+ .simple_form {
+    position: relative;
+    color: $fourth-color;
+    padding: 1rem;
+    margin-top: 10rem;
+    width: 30rem;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ffffff15;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+    border-left: 1px solid rgba(255, 255, 255, 0.363);
+
+    .error_explanation{
+        h2{
+            color: red;
+        }
+    }
+
+
+    .form__inputs{
+        .user_email{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+                abbr{
+                    display: none;
+                }
+            }
+            input[type="email"]{
+              @include input;
+              background-color: #07070769;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+              border-left: 1px solid rgba(255, 255, 255, 0.363);
+    
+              // hover and focus
+              &:hover{
+                border: 1px solid $fourth-color;
+              }
+              &:focus{
+                border: 1px solid $fourth-color;
+              }
+            }
+    
+
+        }
+
+        .user_password{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                margin-left: .8rem;
+                abbr{
+                    display: none;
+                }
+
+            }
+            input[type="password"]{
+                @include input;
+                background-color: #07070769;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+                border-left: 1px solid rgba(255, 255, 255, 0.363);
+                // hover and focus
+                &:hover{
+                  border: 1px solid $fourth-color;
+                }
+                &:focus{
+                  border: 1px solid $fourth-color;
+                }
+      
+              }
+            .hint{
+                color: red;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                display: none;
+            }
+        }
+
+        .user_password_confirmation{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+                abbr{
+                    display: none;
+                }
+
+            }input[type="password"]{
+                @include input;
+                background-color: #07070769;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+                border-left: 1px solid rgba(255, 255, 255, 0.363);
+                // hover and focus
+                &:hover{
+                  border: 1px solid $fourth-color;
+                }
+                &:focus{
+                  border: 1px solid $fourth-color;
+                }
+      
+              }
+            .hint{
+                color: red;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                display: none;
+            }
+        }
+        .user_current_password{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+                abbr{
+                    display: none;
+                }
+
+            }input[type="password"]{
+                @include input;
+                background-color: #07070769;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+                border-left: 1px solid rgba(255, 255, 255, 0.363);
+                // hover and focus
+                &:hover{
+                  border: 1px solid $fourth-color;
+                }
+                &:focus{
+                  border: 1px solid $fourth-color;
+                }
+      
+              }
+            .hint{
+                color: red;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                display: none;
+            }
+        }
+        .user_remember_me{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            input[type="checkbox"]{
+                outline: none;
+                width: 2rem;
+                height: auto;
+                color: $text-color;
+                margin-bottom: 1rem;
+                transition: all 0.5s ease;
+                &:focus{
+                    border: 1px solid rgb(9, 255, 9);
+                }
+            }
+            label{
+                color: $text-color;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+                abbr{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .form__actions{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .btn{
+            background-color: transparent;
+            color: $text;
+            border: 1px solid rgb(9, 255, 9);
+            text-decoration: none;
+            padding: 0.2rem 2rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            &:hover{
+                background-color: #41e010;
+                color: #000102;
+            }
+        }
+        p{
+            color: $text-color;
+            margin-top: 1rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            &:hover{
+                color: $third-color;
+                }
+            }
+        }
+    }
+}
+
+//Display Form
+
+.form__event{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c0d22;
+    height: 100vh;
+    .title{
+        position: absolute;
+        font-size: 2rem;
+        font-weight: 600;
+        color: $text-color;
+        text-align: center;
+        top: 12%;
+        left: 45.3%;
+      }
+    .simple_form{
+        position: relative;
+        color: $fourth-color;
+        padding: 1rem;
+        margin-top: 10rem;
+        width: 40rem;
+        height: 50rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: #25293b56;
+        border-radius: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+        border-left: 1px solid rgba(255, 255, 255, 0.363);
+    
+            .error_notification{
+                color: red;
+                margin-left: 1rem;
+            }
+            .error{
+                color: red;
+                margin-left: 1rem;
+
+            }
+
+
+       .form__inputs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+ 
+            .field{
+              
+                width: 30rem;
+                height: 3rem;
+                display: flex;
+                flex-direction: column;
+                margin: 2rem;
+                    label{
+                    color: $text-color;
+                    font-size: 1.2rem;
+                    margin-bottom: .5rem;
+                    font-weight: 600;
+                    margin-left: .8rem;
+                    abbr{
+                        display: none;
+                    }
+                }
+                input[type="text"]{
+                    @include input;
+                    width: 100%;
+                    background-color: #07070769;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+                    border-left: 1px solid rgba(255, 255, 255, 0.363);
+                    // hover and focus
+                    &:hover{
+                      border: 1px solid $fourth-color;
+                    }
+                    &:focus{
+                      border: 1px solid $fourth-color;
+                    }
+                }
+                    input[type="checkbox"]{
+                        margin-left: 10rem;
+                        text-align: center;
+                        outline: none;
+                        width: 1rem;
+                        height: auto;
+                        color: $text-color;
+                        transition: all 0.5s ease;
+                        &:focus{
+                            background-color: #41e010;
+                        }
+                    }
+            }
+
+            .field-time{
+                
+                width: 40rem;
+                display: flex;
+                flex-direction: row;
+                margin: 2rem;
+             
+                 background-color: transparent; 
+                    label{
+                    color: $text-color;
+                    font-size: 1.2rem;
+                    margin-top: 1rem;
+                    margin-bottom: .5rem;
+                    font-weight: 600;
+                    margin-left: 6rem;
+                    margin-right: 1rem;
+                        text-decoration: none;
+                     text-transform: uppercase;  
+                    abbr{
+                        display: none;
+                    }
+                }
+                .datetime{
+                    background-color: #1a1a1a86;
+                    color: $text;
+                    margin-right: .3rem;
+
+                }
+
+
+           }
+            .field-desc{
+                width: 30rem;
+                height: 3rem;
+                display: flex;
+                flex-direction: column;
+                margin: 2rem;
+                height: 100%;
+                    label{
+                    color: $text-color;
+                    font-size: 1.2rem;
+                    margin-bottom: .5rem;
+                    font-weight: 600;
+                    margin-left: .8rem;
+                    abbr{
+                        display: none;
+                    }
+
+                }
+                textarea{
+                    @include input;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #07070769;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+                    border-left: 1px solid rgba(255, 255, 255, 0.363);
+                    // hover and focus
+                    &:hover{
+                      border: 1px solid $fourth-color;
+                    }
+                    &:focus{
+                      border: 1px solid $fourth-color;
+                    }
+                }
+            }
+        }
+        .form__actions{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+          
+            input[type="submit"]{
+                background-color: transparent;
+                color: $text;
+                border: 1px solid rgb(9, 255, 9);
+                text-decoration: none;
+                padding: 0.2rem 2rem;
+                border-radius: 10px;
+                font-size: 1.2rem;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                &:hover{
+                    background-color: #41e010;
+                    color: #000102;
+                }
+            }
+
+            //link as button    
+
+            .cancel{  
+                 
+                margin-top: 1rem;
+                width: 11rem;
+                height: 1rem;
+                border: 1px solid rgb(255, 3, 3);
+                text-transform: uppercase;
+                padding: 1rem;
+                border-radius: 10px;
+                font-size: 1rem;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                color: #ffffff;
+                cursor: pointer;
+                
+                &:hover{
+                    background-color: #c9040488;
+                    color: #ffffff;
+                }
+                
+            }   
+        }
+    }
+}
+.events__container{
+    width: 100vw;
+    height: 100vh;
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem;
+
+    .upcoming__events{
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        text-transform: uppercase;
+        .title{
+            color: $text-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .card__container{
+          
+            display: flex;
+            flex-direction: row;
+            
+            .event__card{
+                background-color: #0c0d22;
+                position: relative;
+                padding: 5rem;
+                height: 20vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-radius: 1rem;
+                margin-top: 2rem;
+                margin-left:.5rem;
+                transition: all 0.5s ease;
+                box-shadow: 0 0 1px 0 rgba(0, 169, 199, 0.219);
+
+                &:hover{
+                    transition: all 0.5s ease;
+                }
+
+                .event__title{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                    text-decoration: none;
+                    &:hover{
+                        font-size: 1.2rem;
+
+                    }
+                }
+
+                p{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .button{
+                    width: 5rem;
+                    height: 2rem;
+                    background-color: transparent;
+                    border:1px solid green;
+                    color: $text;
+                    text-decoration: none;
+                    padding: 1rem 2rem;
+                    border-radius: 10px;
+                    font-size: .7rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        background-color:#10be3b;
+                    }
+                }
+
+            }
+            &:hover{
+                font-size: 1rem;
+               
+         
+            }
+
+
+    }
+}
+
+    .past__events{
+
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            text-transform: uppercase;
+            .title{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+            .card__container{
+              
+                display: flex;
+                flex-direction: row;
+                
+                .event__card{
+                    background-color: #0c0d22;
+                    position: relative;
+                    padding: 5rem;
+                    height: 20vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-radius: 1rem;
+                    margin-top: 2rem;
+                    margin-left:.5rem;
+                    transition: all 0.5s ease;
+                    box-shadow: 0 0 1px 0 rgba(0, 169, 199, 0.219);
+
+                    &:hover{
+                        transition: all 0.5s ease;
+                        padding: 6rem;
+                        height: 25vh;
+                    }
+
+                    .event__title{
+                        color: $text-color;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                        text-decoration: none;
+                        &:hover{
+                            font-size: 1.2rem;
+
+                        }
+                    }
+
+                    p{
+                        color: $text-color;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                    }
+
+                    .button{
+                        width: 5rem;
+                        height: 2rem;
+                        background-color: transparent;
+                        border:1px solid green;
+                        color: $text;
+                        text-decoration: none;
+                        padding: 1rem 2rem;
+                        border-radius: 10px;
+                        font-size: .7rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                        &:hover{
+                            background-color:#10be3b;
+                            
+                        }
+                    }
+
+                }
+                &:hover{
+                    font-size: 1rem;
+                   
+             
+                }
+
+
+        }
+    }
+}
+
+
+.show__container{
+    width: 100vw;
+    height: 100vh;
+    background-color: $background-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .title{
+        color: rgb(255, 255, 255);
+        font-size: 1.5rem;
+        position: absolute;
+        margin-bottom: 15rem;
+       
+    }
+
+    .card__container{
+        width: 50vw;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-left: 5rem;
+        
+        .event__card{
+            width: 50rem;
+            height: 50vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 1rem;
+            background-color: #ffffff0c;
+
+            .event__title{
+                color: #0bc904;
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 600;
+                margin-bottom: 3rem;
+                text-transform: uppercase;
+                margin-top: -10rem;
+
+            }
+
+            .event__host{
+
+                color: $text-color;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+             
+            }
+
+            .event__location{
+                color: $text-color;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .event__date{
+                color: $text-color;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+               
+            }
+
+            .event__details{
+                color: $text-color;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .event__private{
+                color: $text-color;
+                font-size: 1.5rem;
+                margin-bottom: -10rem;
+            }
+
+            .event__public{
+                color: $text-color;
+                font-size: 1.5rem;
+                margin-bottom: 4rem;
+            }
+
+            .button__container{
+             
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                margin-bottom: 2rem;
+                display: flex;
+                justify-content: center;
+
+                .btn{  
+                  
+                    width: 15rem;
+                    height: 3.5rem;
+                    border: 1px solid greenyellow;
+                    color: $text;
+                    text-decoration: none;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                         background-color: #146527;
+         
+                    }
+                }
+
+            }
+
+            .button{ 
+                
+                    align-items: center;
+                    border:1px solid #146527;
+                    color: $text;
+                    text-decoration: none;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    text-align: center;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        font-size: 1rem;
+                        background-color: #0bc9046e;
+                    }
+            }
+
+
+        }
+
+
+
+    }
+
+    .attendee__container{
+        color: $text;
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        //Attendee List
+        .wrapper{
+            width: 50%;
+            height: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            background-color: #ffffff0a;
+
+            h1{
+               
+                color: $text;
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            .attendee__name{
+                color: $text;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+        }
+        .sendInvites__container{
+            width: 50vw;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        
+
+            //user List
+            .box{
+                background-color: #fdfdfd09;
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+                border-radius: 1rem;
+                margin: .5rem;
+                padding: 1rem;
+
+                p{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+                .status{
+                    color: $text-color;
+                    font-size: 1rem;
+                    color: #d88c19;
+
+                }
+                // link as  a button
+                a{
+                    width: 10rem;
+                    height: 1rem;
+                    border: 1px solid rgb(45, 255, 3);
+                    color: $text;
+                    text-decoration: none;
+                    padding: 1rem;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        background-color: #2bc904dc;
+                        color: #000000;
+                    }
+                }
+            }
+        }
+
+    }
+}
+.user__container{
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:10rem;
+    background-color: $background-color;
+
+
+    .invitation__container{
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     
+        .title{
+            color: $text-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-right: 3rem;
+        }
+        .event__card{
+            position: relative;
+            background-color: #fffdfd34;
+            width: 20vw;
+            height: 12vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 1rem;
+            margin:1rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+            z-index: 1;
+
+            &:hover{
+
+                transition: all 0.5s ease;
+            }
+            .event__title__invite{
+                color: $text-color;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+            }
+
+
+            .button__container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+               
+
+                .btn{
+                        text-transform: uppercase;
+                        background-color: transparent;
+                        width: 10rem;
+                        margin: .5rem;
+                        border: 1px solid greenyellow;
+                        text-decoration: none;
+                        padding: 1rem;
+                        border-radius: 10px;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: $text;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                       
+                        &:hover{
+                            width: 12rem;
+                            font-size: 1rem;
+                            background-color: #0bc904;
+                        }
+                }
+
+            }
+
+        }
+
+
+    }
+
+
+
+    .title{
+        color: $text-color;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 2rem;
+        text-transform: uppercase;
+    }
+
+    .my__events{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        border-radius: 10px;
+
+        .card__container{
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            background-color: #ffffff0e;
+            border-radius: 10px;
+            .event__card{
+                position: relative;
+                width: 30rem;
+                height: 23vh;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-radius: 1rem;
+                margin:1.5rem;
+                transition: all 0.5s ease;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+                background-color: #86888573;
+                margin-right: -1rem;
+            
+                &:hover{
+                    transition: all 0.5s ease;
+                }
+                
+               .event__title{
+                color: #c2fdab;
+                font-size: 1.5rem;  
+                margin-top: 2rem;
+                text-transform: uppercase;
+                text-decoration: underline;
+            } 
+                .event__host{
+                    margin-top: -1rem;
+                    text-transform: capitalize;
+                    color: $text-color;
+                    font-size: 1.1rem;
+
+                }
+
+                .event__location{
+                    color: $text-color;
+                    font-size: 1rem;
+               
+                    text-transform: capitalize;
+                }
+
+                .event__date{
+                    color: $text-color;
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                }
+
+                .event__details{
+                    color: $text-color;
+                    font-size: 1.5rem;
+                 
+                }
+
+                .event__private{
+                    color: $text-color;
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .event__public{
+                    color: $text-color;
+                    font-size: 1.5rem;
+                    
+                }
+
+                .button__container{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+
+                    .btn{
+                        border: 1px solid rgb(129, 255, 12);
+                        width: 10rem;
+                        background-color: transparent;
+                        color: $text;
+                        text-decoration: none;
+                        padding: .5rem;
+                        border-radius: 10px;
+                        font-size: 1rem;
+                        text-align: center;
+                        align-items: center;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                       
+                        &:hover{
+                            font-size: 1rem;
+                            background-color: #0bc904;
+                            padding: .6rem;
+                            width: 11rem;
+
+                        }
+                    }
+
+                }
+
+                .button{
+                    width: 10rem;
+                        text-decoration: none;
+                        padding: 1rem;
+                        border-radius: 5rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                        color: $text;
+                        &:hover{
+                            font-size: 1rem;
+                        }
+                }
+            }
+        }
+
+    }
+
+}

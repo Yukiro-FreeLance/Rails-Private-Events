@@ -1,0 +1,28 @@
+<div class="sendInvites__container">
+  <p class="title">User List</p>
+          <% User.all.order('email Asc').each do | user |%>
+            <% unless user.id == current_user.id %>
+              <div class="box invites">
+                  <p><strong><%= user.username %></strong></p>
+                  <% if user.attendings.confirmed(@event.id).exists? %>
+                    <div>
+                      <p class="status">Status: User attending</p>
+                    </div>
+                  <% elsif %>
+                    <% user.invites.received(@event.id, user.id).exists? %>
+                      <%= link_to 'Cancel Invitation', event_destroy_invite_path(:event_id=> @event.id, :invitee_id=> user.id),
+                          data: { turbo_method: "delete" }, class: 'button ' %>
+                      <div>
+                        <p  class="status">Status: Invitation Sent</p>
+                      </div>
+                  <% else %>
+                      <%= link_to 'Invite', event_create_invite_path(:event_id => @event.id, :invitee_id=> user.id, :inviter_id=> current_user.id),
+                          data: { turbo_method: "post" }, class: 'button' %>
+                  <% end %>
+              </div>
+            <% end %>
+          <% end %>
+  </div>
+
+
+
